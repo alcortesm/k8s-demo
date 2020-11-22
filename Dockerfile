@@ -11,7 +11,6 @@ RUN go mod download
 # image with the sources, useful for CI testing and building
 FROM with-deps AS with-sources
 COPY . .
-RUN ls -la 
 
 # image with the compiled static binary to run the app.
 FROM with-sources AS build
