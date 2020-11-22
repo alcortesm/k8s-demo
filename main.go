@@ -9,6 +9,8 @@ import (
 	"os/signal"
 	"syscall"
 	"time"
+
+	"rsc.io/quote"
 )
 
 func main() {
@@ -80,7 +82,7 @@ func hiHandler() http.Handler {
 		time.Sleep(100 * time.Millisecond)
 
 		w.Header().Set("Content-Type", "text/plain")
-		_, _ = fmt.Fprintf(w, "hello world!")
+		_, _ = fmt.Fprintf(w, quote.Go())
 
 		status := http.StatusOK
 		log.Printf("%d %s elapsed=%s\n", status, http.StatusText(status), time.Since(start))
